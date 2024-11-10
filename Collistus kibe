@@ -1,0 +1,37 @@
+def main():
+    try:
+        # Step 1: File Creation and Writing
+        with open("my_file.txt", 'w') as file:
+            file.write("Hello, this is line 1.\n")
+            file.write("The number is 42.\n")
+            file.write("This is line 3 with text and numbers: 12345.\n")
+        print("File created and initial content written.")
+
+        # Step 2: File Reading and Display
+        with open("my_file.txt", 'r') as file:
+            print("\nReading contents of my_file.txt:")
+            print(file.read())
+
+        # Step 3: File Appending
+        with open("my_file.txt", 'a') as file:
+            file.write("Appending line 4.\n")
+            file.write("Here's line 5 with more numbers: 67890.\n")
+            file.write("Final line 6.\n")
+        print("\nAdditional lines appended to the file.")
+
+        # Step 4: Display Updated File Contents
+        with open("my_file.txt", 'r') as file:
+            print("\nUpdated contents of my_file.txt:")
+            print(file.read())
+
+    except FileNotFoundError:
+        print("Error: The file was not found.")
+    except PermissionError:
+        print("Error: You do not have permission to access this file.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+    finally:
+        print("\nFile operation completed.")
+
+if __name__ == "__main__":
+    main()
